@@ -11,9 +11,8 @@ df['Total on board'] = df['Total on board'].fillna('NA')
 df['Season'] = None
 
 columns_to_keep = [
-    'Date', 'Country', 'Region', 'Aircraft', 'Operator', 'Registration', 'Flight phase', 'Flight type',
-    'Crash site', 'Schedule', 'Total on board', 'Survivors', 'Crew on board', 'Crew fatalities', 'Pax on board',
-    'PAX fatalities', 'Other fatalities', 'Total fatalities', 'Circumstances', 'Crash cause', 'Crash location', 'Season'
+    'Date', 'Season', 'Country', 'Region', 'Aircraft', 'Operator',
+    'Schedule', 'Total on board', 'Survivors', 'Total fatalities', 'Crash cause'
 ]
 
 df = df[columns_to_keep]
@@ -34,13 +33,10 @@ def get_season(month):
         return 'Autumn'
 
 
-# Apply the function to determine the season
 df['Season'] = df['Date'].dt.month.apply(get_season)
 
-# Convert other columns to numeric types
 int_columns = [
-    'Total on board', 'Crew on board', 'Crew fatalities', 'Pax on board',
-    'PAX fatalities', 'Other fatalities'
+    'Total on board', 'Total fatalities'
 ]
 for column in int_columns:
     df[column] = pd.to_numeric(df[column], errors='coerce').astype('Int64')

@@ -1,3 +1,5 @@
+import os
+
 from dash import html, dcc, register_page, callback, Output, Input, State
 from dash import dash_table
 import dash_bootstrap_components as dbc
@@ -13,8 +15,16 @@ register_page(
     path='/data'
 )
 
-raw_data = pd.read_csv(r"C:\Users\plumb\Documents\CVUT\PYT\course_work\osadcana\crashes-raw.csv")
-processed_data = pd.read_csv(r"C:\Users\plumb\Documents\CVUT\PYT\course_work\osadcana\crashes-processed.csv")
+
+def load_data(filename):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    grandparent_dir = os.path.abspath(os.path.join(script_dir, os.pardir, os.pardir))  # Go to the grandparent directory
+    file_path = os.path.join(grandparent_dir, filename)
+    return pd.read_csv(file_path)
+
+
+raw_data = load_data('crashes-raw.csv')
+processed_data = load_data('crashes-processed.csv')
 
 
 def layout():

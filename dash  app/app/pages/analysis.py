@@ -1,3 +1,4 @@
+import os
 import dash
 import joblib
 from dash import html, dcc, register_page, callback, Output, Input
@@ -30,6 +31,12 @@ def layout():
         graph_container
     ])
 
+
+def load_processed_data(filename='crashes-processed.csv'):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    grandparent_dir = os.path.abspath(os.path.join(script_dir, os.pardir, os.pardir))  # Go to the grandparent directory
+    file_path = os.path.join(grandparent_dir, filename)
+    return pd.read_csv(file_path)
 
 @callback(
     Output('graph-container', 'children'),
@@ -78,7 +85,7 @@ def display_graph(btn_time, btn_location, btn_causes, btn_operator, btn_survival
     ctx = dash.callback_context
 
     button_id = ctx.triggered[0]['prop_id'].split('.')[0]
-    processed_data = pd.read_csv(r"C:\Users\plumb\Documents\CVUT\PYT\course_work\osadcana\crashes-processed.csv")
+    processed_data = load_processed_data()
 
     if button_id == 'btn-time':
         fig1 = create_yearly_incidents_figure(processed_data)

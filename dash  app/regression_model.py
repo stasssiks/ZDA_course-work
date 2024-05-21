@@ -1,9 +1,18 @@
+import os
+
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMA
 import matplotlib.pyplot as plt
 import joblib
 
-data = pd.read_csv(r"C:\Users\plumb\Documents\CVUT\PYT\course_work\osadcana\crashes-processed.csv")
+
+def load_processed_data(filename='crashes-processed.csv'):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, filename)
+    return pd.read_csv(file_path)
+
+
+data = load_processed_data()
 data['Date'] = pd.to_datetime(data['Date'])
 data.set_index('Date', inplace=True)
 
