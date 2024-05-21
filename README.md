@@ -15,28 +15,33 @@ Aplikace nabízí následující funkce:
 Pro spuštění aplikace je třeba provést následující kroky:
 
 1. **Klonování repozitáře**
-    ```bash
-    git clone [link]
-    cd air-crashes
-    ```
+
+   ```bash
+   git clone [link]
+   cd air-crashes
+   ```
 
 2. **Instalace potřebných balíčků**
-    Ujistěte se, že máte nainstalovaný Python. Poté nainstalujte požadované balíčky pomocí příkazu:
-    ```bash
-    pip install -r requirements.txt
-    ```
+   Ujistěte se, že máte nainstalovaný Python. Poté nainstalujte požadované balíčky pomocí příkazu:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 3. **Spuštění aplikace**
-    Aplikaci spustíte příkazem:
-    ```bash
-    python app.py
-    ```
+   Aplikaci spustíte příkazem:
+
+   ```bash
+   cd dash-app
+   cd app
+   python app.py
+   ```
 
 4. **Přístup k aplikaci**
-    Otevřete webový prohlížeč a přejděte na adresu:
-    ```
-    http://127.0.0.1:8050
-    ```
+   Otevřete webový prohlížeč a přejděte na adresu:
+   ```
+   http://127.0.0.1:8050
+   ```
 
 ## Použité nástroje a knihovny
 
