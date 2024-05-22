@@ -1,6 +1,6 @@
 # Analýza leteckých nehod
 
-Tento projekt se zaměřuje na vytvoření interaktivní webové aplikace pro analýzu a statistiku leteckých nehod pomocí datasetu staženého z Kaggle. Aplikace umožňuje vizualizaci dat a poskytuje různé statistiky a analýzy týkající se leteckých nehod.
+Tento projekt se zaměřuje na analýzu a statistiku leteckých nehod pomocí datasetu staženého z Kaggle. Aplikace umožňuje vizualizaci dat a poskytuje různé statistiky a analýzy týkající se leteckých nehod.
 
 ## Funkcionalita aplikace
 
